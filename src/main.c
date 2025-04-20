@@ -3,6 +3,7 @@
 #include <string.h>
 
 char *read_file_contents(const char *filename);
+int Scanner(char *file_contents);
 
 int main(int argc, char *argv[]) {
     // Disable output buffering
@@ -23,11 +24,17 @@ int main(int argc, char *argv[]) {
         char *file_contents = read_file_contents(argv[2]);
 
         // Uncomment this block to pass the first stage
-        if (strlen(file_contents) > 0) {
-            fprintf(stderr, "Scanner not implemented\n");
-            exit(1);
-        } 
-        printf("EOF  null\n"); // Placeholder, remove this line when implementing the scanner
+        // if (strlen(file_contents) > 0) {
+        //     fprintf(stderr, "Scanner not implemented\n");
+        //     exit(1);
+        // } 
+        // printf("EOF  null\n"); // Placeholder, remove this line when implementing the scanner
+
+        if(strlen(file_contents) > 0)
+        {
+            int result = Scanner(char *file_contents);
+        }
+        printf("EOF  null\n")
         
         free(file_contents);
     } else {
@@ -68,4 +75,27 @@ char *read_file_contents(const char *filename) {
     fclose(file);
 
     return file_contents;
+}
+
+int Scanner(char *file_contents)
+{
+    int file_iterator = 0;
+
+    while(file_contents[file_iterator] != '\0')
+    {
+        switch(file_contents[file_iterator])
+        {
+            case '(':
+            {
+                printf("RIGHT_PAREN ( null\n");
+                break;
+            }
+            case ')':
+            {
+                printf("LEFT_PAREN ) null\n");
+                break;
+            }
+        }
+    }
+    return 0;
 }
