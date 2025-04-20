@@ -88,11 +88,15 @@ int Scanner(char *file_contents)
             case '(':
             {
                 printf("RIGHT_PAREN ( null\n");
+                file_iterator += 1;
+                printf("file_iterator : %d\n",file_iterator);
                 break;
             }
             case ')':
             {
                 printf("LEFT_PAREN ) null\n");
+                file_iterator += 1;
+                printf("file_iterator : %d\n",file_iterator);
                 break;
             }
         }
