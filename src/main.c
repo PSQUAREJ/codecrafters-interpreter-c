@@ -32,9 +32,9 @@ int main(int argc, char *argv[]) {
 
         if(strlen(file_contents) > 0)
         {
-            int result = Scanner(char *file_contents);
+            int result = Scanner(file_contents);
         }
-        printf("EOF  null\n")
+        printf("EOF  null\n");
         
         free(file_contents);
     } else {
