@@ -121,7 +121,7 @@ int Scanner(char *file_contents)
             case ')' :
             {
                 printf("RIGHT_PAREN ) null\n");
-                break
+                break;
             }
         }
 
