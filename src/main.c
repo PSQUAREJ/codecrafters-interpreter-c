@@ -77,6 +77,34 @@ char *read_file_contents(const char *filename) {
     return file_contents;
 }
 
+// int Scanner(char *file_contents)
+// {
+//     int file_iterator = 0;
+
+//     while(file_contents[file_iterator] != '\0')
+//     {
+//         switch(file_contents[file_iterator])
+//         {
+//             case '(':
+//             {
+//                 printf("LEFT_PAREN ( null\n");
+//                 file_iterator += 1;
+//                 printf("file_iterator : %d\n",file_iterator);
+//                 break;
+//             }
+//             case ')':
+//             {
+//                 printf("RIGHT_PAREN ) null\n");
+//                 file_iterator += 1;
+//                 printf("file_iterator : %d\n",file_iterator);
+//                 break;
+//             }
+//         }
+//     }
+//     return 0;
+// }
+
+
 int Scanner(char *file_contents)
 {
     int file_iterator = 0;
@@ -85,21 +113,18 @@ int Scanner(char *file_contents)
     {
         switch(file_contents[file_iterator])
         {
-            case '(':
+            case '(' :
             {
                 printf("LEFT_PAREN ( null\n");
-                file_iterator += 1;
-                printf("file_iterator : %d\n",file_iterator);
                 break;
             }
-            case ')':
+            case ')' :
             {
                 printf("RIGHT_PAREN ) null\n");
-                file_iterator += 1;
-                printf("file_iterator : %d\n",file_iterator);
-                break;
+                break
             }
         }
+
+        file_iterator += 1;
     }
-    return 0;
 }
