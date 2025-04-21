@@ -123,6 +123,15 @@ int Scanner(char *file_contents)
                 printf("RIGHT_PAREN ) null\n");
                 break;
             }
+            case '{' :
+            {
+                printf("LEFT_BRACE { null\n");
+                break;
+            }
+            case '}' :
+            {
+                printf("RIGHT_BRACE } null\n");
+            }
         }
 
         file_iterator += 1;
