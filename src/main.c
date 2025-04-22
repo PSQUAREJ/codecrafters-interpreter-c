@@ -133,6 +133,40 @@ int Scanner(char *file_contents)
                 printf("RIGHT_BRACE } null\n");
                 break;
             }
+            case '.' :
+            {
+                printf("DOT . null\n");
+            }
+            case '*' :
+            {
+                printf("STAR * null\n");
+                break;
+            }
+            case ',' :
+            {
+                printf("COMMA , null\n");
+                break;
+            }
+            case '+' :
+            {
+                printf("PLUS , null\n");
+                break;
+            }
+            case '-' :
+            {
+                printf("MINUS null\n");
+                break;
+            }
+            case ';' :
+            {
+                printf("SEMICOLON null\n");
+                break;
+            }
+            case '/' :
+            {
+                printf("SLASH null\n");
+                break;
+            }    
         }
 
         file_iterator += 1;
