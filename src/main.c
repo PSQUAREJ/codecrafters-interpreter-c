@@ -77,37 +77,11 @@ char *read_file_contents(const char *filename) {
     return file_contents;
 }
 
-// int Scanner(char *file_contents)
-// {
-//     int file_iterator = 0;
-
-//     while(file_contents[file_iterator] != '\0')
-//     {
-//         switch(file_contents[file_iterator])
-//         {
-//             case '(':
-//             {
-//                 printf("LEFT_PAREN ( null\n");
-//                 file_iterator += 1;
-//                 printf("file_iterator : %d\n",file_iterator);
-//                 break;
-//             }
-//             case ')':
-//             {
-//                 printf("RIGHT_PAREN ) null\n");
-//                 file_iterator += 1;
-//                 printf("file_iterator : %d\n",file_iterator);
-//                 break;
-//             }
-//         }
-//     }
-//     return 0;
-// }
-
 
 int Scanner(char *file_contents)
 {
-    int file_iterator = 0;
+    int file_iterator = 0; //iterate through the file_content array
+    int line_number = 1; //current line context. Used to report warnings and errors. For now 1
 
     while(file_contents[file_iterator] != '\0')
     {
@@ -167,6 +141,11 @@ int Scanner(char *file_contents)
             {
                 printf("SLASH / null\n");
                 break;
+            }
+            default :
+            {
+                //for error reporting
+                printf("[Line %d] Error: Unexpected character %c\n",line_number,file_contents[file_iterator]);
             }    
         }
 
