@@ -149,22 +149,22 @@ int Scanner(char *file_contents)
             }
             case '+' :
             {
-                printf("PLUS , null\n");
+                printf("PLUS + null\n");
                 break;
             }
             case '-' :
             {
-                printf("MINUS null\n");
+                printf("MINUS - null\n");
                 break;
             }
             case ';' :
             {
-                printf("SEMICOLON null\n");
+                printf("SEMICOLON ; null\n");
                 break;
             }
             case '/' :
             {
-                printf("SLASH null\n");
+                printf("SLASH / null\n");
                 break;
             }    
         }
