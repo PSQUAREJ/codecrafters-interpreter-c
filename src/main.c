@@ -16,6 +16,7 @@ int main(int argc, char *argv[]) {
     }
 
     const char *command = argv[1];
+    int return_value = 0;
 
     if (strcmp(command, "tokenize") == 0) {
         // You can use print statements as follows for debugging, they'll be visible when running tests.
@@ -33,6 +34,7 @@ int main(int argc, char *argv[]) {
         if(strlen(file_contents) > 0)
         {
             int result = Scanner(file_contents);
+            return_value = result;
         }
         printf("EOF  null\n");
         
@@ -42,7 +44,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    return 0;
+    return return_value;
 }
 
 char *read_file_contents(const char *filename) {
@@ -82,6 +84,7 @@ int Scanner(char *file_contents)
 {
     int file_iterator = 0; //iterate through the file_content array
     int line_number = 1; //current line context. Used to report warnings and errors. For now 1
+    int returnable_value = 0; //0 if all right, 65 if something is wrong
 
     while(file_contents[file_iterator] != '\0')
     {
@@ -146,9 +149,12 @@ int Scanner(char *file_contents)
             {
                 //for error reporting
                 printf("[Line %d] Error: Unexpected character %c\n",line_number,file_contents[file_iterator]);
+                returnable_value = 65;
             }    
         }
 
         file_iterator += 1;
     }
+
+    return returnable_value;
 }
