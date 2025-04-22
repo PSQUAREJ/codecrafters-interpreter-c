@@ -90,6 +90,7 @@ int Scanner(char *file_contents)
     {
         switch(file_contents[file_iterator])
         {
+            //block and line defines
             case '(' :
             {
                 printf("LEFT_PAREN ( null\n");
@@ -110,6 +111,12 @@ int Scanner(char *file_contents)
                 printf("RIGHT_BRACE } null\n");
                 break;
             }
+            case ';' :
+            {
+                printf("SEMICOLON ; null\n");
+                break;
+            }
+            //whatever charecters
             case '.' :
             {
                 printf("DOT . null\n");
@@ -125,6 +132,7 @@ int Scanner(char *file_contents)
                 printf("COMMA , null\n");
                 break;
             }
+            //operators
             case '+' :
             {
                 printf("PLUS + null\n");
@@ -135,16 +143,64 @@ int Scanner(char *file_contents)
                 printf("MINUS - null\n");
                 break;
             }
-            case ';' :
-            {
-                printf("SEMICOLON ; null\n");
-                break;
-            }
             case '/' :
             {
                 printf("SLASH / null\n");
                 break;
             }
+            case '=' :
+            {
+                if(file_contents[file_iterator + 1] == '=')
+                {
+                    printf("EQUAL_EQUAL == null\n");
+                }
+                else
+                {
+                    printf("EQUAL = null\n");
+                }
+
+                break;
+            }
+            case '!' :
+            {
+                if(file_contents[file_iterator + 1] == '=')
+                {
+                    printf("BANG_EQUAL  != null\n");
+                }
+                else
+                {
+                    printf("BANG ! null\n");
+                }
+
+                break;
+            }
+            case '<' :
+            {
+                if(file_contents[file_iterator + 1] == '=')
+                {
+                    printf("LESS_EQUAL  != null\n");
+                }
+                else
+                {
+                    printf("LESS ! null\n");
+                }
+
+                break;
+            }
+            case '>' :
+            {
+                if(file_contents[file_iterator + 1] == '=')
+                {
+                    printf("GREATER_EQUAL  != null\n");
+                }
+                else
+                {
+                    printf("GREATER ! null\n");
+                }
+
+                break;
+            }  
+            //error bitching
             default :
             {
                 //for error reporting
