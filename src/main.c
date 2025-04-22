@@ -153,6 +153,7 @@ int Scanner(char *file_contents)
                 if(file_contents[file_iterator + 1] == '=')
                 {
                     printf("EQUAL_EQUAL == null\n");
+                    file_iterator += 1;
                 }
                 else
                 {
@@ -166,6 +167,7 @@ int Scanner(char *file_contents)
                 if(file_contents[file_iterator + 1] == '=')
                 {
                     printf("BANG_EQUAL  != null\n");
+                    file_iterator += 1;
                 }
                 else
                 {
@@ -179,10 +181,11 @@ int Scanner(char *file_contents)
                 if(file_contents[file_iterator + 1] == '=')
                 {
                     printf("LESS_EQUAL  != null\n");
+                    file_iterator += 1;
                 }
                 else
                 {
-                    printf("LESS ! null\n");
+                    printf("LESS < null\n");
                 }
 
                 break;
@@ -192,10 +195,11 @@ int Scanner(char *file_contents)
                 if(file_contents[file_iterator + 1] == '=')
                 {
                     printf("GREATER_EQUAL  != null\n");
+                    file_iterator += 1;
                 }
                 else
                 {
-                    printf("GREATER ! null\n");
+                    printf("GREATER > null\n");
                 }
 
                 break;
