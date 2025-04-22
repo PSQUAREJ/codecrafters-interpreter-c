@@ -136,6 +136,7 @@ int Scanner(char *file_contents)
             case '.' :
             {
                 printf("DOT . null\n");
+                break;
             }
             case '*' :
             {
