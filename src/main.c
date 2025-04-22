@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+//random comment so that I can push. - Scanning: Negation & inequality operators
+
 char *read_file_contents(const char *filename);
 int Scanner(char *file_contents);
 
