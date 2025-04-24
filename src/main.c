@@ -248,7 +248,7 @@ void testing(char *file_contents)
 {
     int file_iterator = 0;
 
-    printf("testing:\n")
+    printf("testing:\n");
     while(file_contents[file_iterator] != '\0')
     {
         printf("iterator : %d : %c\n",file_iterator,file_contents[file_iterator]);
