@@ -4,6 +4,9 @@
 
 //random comment so that I can push. - Scanning: Negation & inequality operators
 
+//global variables
+long GLOBAL_file_size;
+
 char *read_file_contents(const char *filename);
 int Scanner(char *file_contents);
 
@@ -58,6 +61,7 @@ char *read_file_contents(const char *filename) {
 
     fseek(file, 0, SEEK_END);
     long file_size = ftell(file);
+    GLOBAL_file_size = file_size;
     rewind(file);
 
     char *file_contents = malloc(file_size + 1);
@@ -87,6 +91,7 @@ int Scanner(char *file_contents)
     int file_iterator = 0; //iterate through the file_content array
     int line_number = 1; //current line context. Used to report warnings and errors. For now 1
     int returnable_value = 0; //0 if all right, 65 if something is wrong
+    int comment_flag = 0; //if set true, skips line. For now, this will skip the entire file.
 
     while(file_contents[file_iterator] != '\0')
     {
@@ -147,7 +152,17 @@ int Scanner(char *file_contents)
             }
             case '/' :
             {
-                printf("SLASH / null\n");
+                if(file_contents[file_iterator + 1] == '/' )
+                {
+                    comment_flag = 1;
+                    file_iterator = GLOBAL_file_size; //move the iterator to the end of the file
+                    break;
+                }
+                else
+                {
+                    printf("SLASH / null\n");
+                }
+
                 break;
             }
             case '=' :
