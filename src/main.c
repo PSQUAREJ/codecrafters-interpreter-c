@@ -155,7 +155,7 @@ int Scanner(char *file_contents)
                 {
                     comment_flag = 1;
                     //file_iterator = GLOBAL_file_size; //move the iterator to the end of the file
-                    file_iterator = skip_to_next_line(int file_iterator,char *file_contents);
+                    file_iterator = skip_to_next_line(file_iterator,file_contents);
                     break;
                 }
                 else
