@@ -220,6 +220,16 @@ int Scanner(char *file_contents)
                 }
 
                 break;
+            }
+            //ignoring mfs
+            case ' ' :
+            {
+                file_iterator += 1;
+                break;
+            }
+            case '\t' :
+            {
+                file_iterator += 1;
             }  
             //error bitching
             default :
