@@ -227,13 +227,18 @@ int Scanner(char *file_contents)
             {
                 file_iterator += 1;
                 break;
+            }
+            case '\n' :
+            {
+                file_iterator += 1;
+                break;
             }  
             //error bitching
             default :
             {
                 //for error reporting
                 fprintf(stderr,"[line %d] Error: Unexpected character: %c\n",line_number,file_contents[file_iterator]);
-                fprintf(stderr,"debug info:\nfile_iterator: %d",file_iterator);
+                //fprintf(stderr,"debug info:\nfile_iterator: %d",file_iterator);
                 returnable_value = 65;
             }    
         }
