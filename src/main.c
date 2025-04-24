@@ -9,6 +9,7 @@ long GLOBAL_file_size;
 
 char *read_file_contents(const char *filename);
 int Scanner(char *file_contents);
+void testing(char *file_contents);
 
 int main(int argc, char *argv[]) {
     // Disable output buffering
@@ -29,12 +30,7 @@ int main(int argc, char *argv[]) {
         
         char *file_contents = read_file_contents(argv[2]);
 
-        // Uncomment this block to pass the first stage
-        // if (strlen(file_contents) > 0) {
-        //     fprintf(stderr, "Scanner not implemented\n");
-        //     exit(1);
-        // } 
-        // printf("EOF  null\n"); // Placeholder, remove this line when implementing the scanner
+        testing(file_contents);
 
         if(strlen(file_contents) > 0)
         {
@@ -237,7 +233,7 @@ int Scanner(char *file_contents)
             {
                 //for error reporting
                 fprintf(stderr,"[line %d] Error: Unexpected character: %c\n",line_number,file_contents[file_iterator]);
-                fprintf(stderr,"debug info:\n file_iterator: %d",file_iterator);
+                fprintf(stderr,"debug info:\nfile_iterator: %d",file_iterator);
                 returnable_value = 65;
             }    
         }
@@ -246,4 +242,16 @@ int Scanner(char *file_contents)
     }
 
     return returnable_value;
+}
+
+void testing(char *file_contents)
+{
+    int file_iterator = 0;
+
+    printf("testing:\n")
+    while(file_contents[file_iterator] != '\0')
+    {
+        printf("iterator : %d : %c\n",file_iterator,file_contents[file_iterator]);
+        file_iterator += 1;
+    }
 }
