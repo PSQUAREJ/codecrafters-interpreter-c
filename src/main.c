@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
         
         char *file_contents = read_file_contents(argv[2]);
 
-        testing(file_contents);
+        //testing(file_contents);
 
         if(strlen(file_contents) > 0)
         {
