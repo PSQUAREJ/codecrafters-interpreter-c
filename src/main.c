@@ -6,6 +6,7 @@
 
 //global variables
 long GLOBAL_file_size;
+int GLOBAL_error_flag;
 
 char *read_file_contents(const char *filename);
 int Scanner(char *file_contents);
@@ -228,6 +229,7 @@ int Scanner(char *file_contents)
             }
             case '\n' :
             {
+                line_number += 1;
                 break;
             }  
             //error bitching
