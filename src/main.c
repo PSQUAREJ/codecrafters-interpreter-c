@@ -8,9 +8,11 @@
 long GLOBAL_file_size;
 int GLOBAL_error_flag;
 
+//declaration of functions (fuck you for declaring functions at the start and defining at the end. I hate that)
 char *read_file_contents(const char *filename);
 int Scanner(char *file_contents);
 void testing(char *file_contents);
+int skip_to_next_line(int file_iterator,char* file_contents);
 
 int main(int argc, char *argv[]) {
     // Disable output buffering
