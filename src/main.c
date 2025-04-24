@@ -237,6 +237,7 @@ int Scanner(char *file_contents)
             {
                 //for error reporting
                 fprintf(stderr,"[line %d] Error: Unexpected character: %c\n",line_number,file_contents[file_iterator]);
+                fprintf(stderr,"debug info:\n file_iterator: %d",file_iterator);
                 returnable_value = 65;
             }    
         }
