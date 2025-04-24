@@ -152,7 +152,8 @@ int Scanner(char *file_contents)
                 if(file_contents[file_iterator + 1] == '/' )
                 {
                     comment_flag = 1;
-                    file_iterator = GLOBAL_file_size; //move the iterator to the end of the file
+                    //file_iterator = GLOBAL_file_size; //move the iterator to the end of the file
+                    file_iterator = skip_to_next_line(int file_iterator,char *file_contents);
                     break;
                 }
                 else
@@ -258,4 +259,19 @@ void testing(char *file_contents)
         printf("iterator : %d : %c\n",file_iterator,file_contents[file_iterator]);
         file_iterator += 1;
     }
+}
+
+int skip_to_next_line(int file_iterator,char* file_contents)
+{
+    //file_iterator points to the current charecter scanned by scanner()
+    //file_contents will contain the actual data from the file that we are scaning.
+    //thus we get the current element by file_contents[file_iterator]
+
+    while(file_contents[file_iterator] != '\n')
+    {
+        file_iterator += 1;
+    }
+
+    file_iterator += 1;
+    return file_iterator;
 }
