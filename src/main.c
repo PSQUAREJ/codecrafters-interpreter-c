@@ -230,6 +230,7 @@ int Scanner(char *file_contents)
             case '\t' :
             {
                 file_iterator += 1;
+                break;
             }  
             //error bitching
             default :
