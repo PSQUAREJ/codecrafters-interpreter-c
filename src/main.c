@@ -53,6 +53,7 @@ int main(int argc, char *argv[]) {
 
 char *read_file_contents(const char *filename) {
     FILE *file = fopen(filename, "r");
+    //fprintf(stderr,"filename : %s\n",filename);
     if (file == NULL) {
         fprintf(stderr, "Error reading file: %s\n", filename);
         return NULL;
@@ -274,6 +275,6 @@ int skip_to_next_line(int file_iterator,char* file_contents)
         file_iterator += 1;
     }
 
-    file_iterator += 1;
+    //file_iterator += 1;
     return file_iterator;
 }

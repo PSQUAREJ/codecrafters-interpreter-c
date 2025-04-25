@@ -57,3 +57,4 @@ vcpkg_installed
 #user's git ignorables
 testing/
 cache/
+local_builds/
