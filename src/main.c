@@ -47,9 +47,10 @@ int main(int argc, char *argv[]) {
         free(file_contents);
     } else {
         fprintf(stderr, "Unknown command: %s\n", command);
-        return 1;
+        return_value = 1;
     }
 
+    fprintf(stderr,"return_value : %d\n",return_value);
     return return_value;
 }
 
