@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#
 
 //random comment so that I can push. - Scanning: Negation & inequality operators
 
@@ -13,6 +14,7 @@ char *read_file_contents(const char *filename);
 int Scanner(char *file_contents);
 void testing(char *file_contents);
 int skip_to_next_line(int file_iterator,char* file_contents);
+//void log_error(const char *format, ...) //logging shit
 
 int main(int argc, char *argv[]) {
     // Disable output buffering
@@ -155,8 +157,7 @@ int Scanner(char *file_contents)
                 if(file_contents[file_iterator + 1] == '/' )
                 {
                     comment_flag = 1;
-                    //file_iterator = GLOBAL_file_size; //move the iterator to the end of the file
-                    file_iterator = skip_to_next_line(file_iterator,file_contents);
+                    file_iterator = skip_to_next_line(file_iterator,file_contents); //skip until just before '\n'
                     break;
                 }
                 else
@@ -234,7 +235,7 @@ int Scanner(char *file_contents)
             case '\n' :
             {
                 line_number += 1;
-                fprintf(stderr,"newline encountered : current line : %d ; previous char : %c",(line_number - 1),file_contents[file_iterator - 1]);
+                log_error("newline encountered : current line : %d ; previous char : %c",(line_number - 1),file_contents[file_iterator - 1]);
                 break;
             }  
             //error bitching
@@ -242,7 +243,6 @@ int Scanner(char *file_contents)
             {
                 //for error reporting
                 fprintf(stderr,"[line %d] Error: Unexpected character: %c\n",line_number,file_contents[file_iterator]);
-                //fprintf(stderr,"debug info:\nfile_iterator: %d",file_iterator);
                 returnable_value = 65;
             }    
         }
@@ -277,5 +277,5 @@ int skip_to_next_line(int file_iterator,char* file_contents)
     }
 
     //file_iterator += 1;
-    return file_iterator;
+    return file_iterator - 1;
 }
