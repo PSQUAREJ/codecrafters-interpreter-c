@@ -235,7 +235,6 @@ int Scanner(char *file_contents)
             case '\n' :
             {
                 line_number += 1;
-                log_error("newline encountered : current line : %d ; previous char : %c",(line_number - 1),file_contents[file_iterator - 1]);
                 break;
             }  
             //error bitching
