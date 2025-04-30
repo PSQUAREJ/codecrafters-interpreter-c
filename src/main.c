@@ -271,7 +271,7 @@ int skip_to_next_line(int file_iterator,char* file_contents)
     //file_contents will contain the actual data from the file that we are scaning.
     //thus we get the current element by file_contents[file_iterator]
 
-    while(file_contents[file_iterator] != '\n' || file_contents[file_iterator] != '\0');
+    while(file_contents[file_iterator] != '\n');
     {
         file_iterator += 1;
     }
