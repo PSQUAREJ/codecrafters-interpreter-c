@@ -159,7 +159,7 @@ int Scanner(char *file_contents)
                 {
                     comment_flag = 1;
                     file_iterator = skip_to_next_line(file_iterator,file_contents); //skip until just before '\n'
-                    break;
+                    //break;
                 }
                 else
                 {
