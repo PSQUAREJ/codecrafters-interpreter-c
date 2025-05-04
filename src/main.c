@@ -14,6 +14,7 @@ char *read_file_contents(const char *filename);
 int Scanner(char *file_contents);
 void testing(char *file_contents);
 int skip_to_next_line(int file_iterator,char* file_contents);
+void handle_stuff();
 
 
 int main(int argc, char *argv[]) {
@@ -63,7 +64,8 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    fprintf(stderr,"return_value : %d\n",return_value);
+    //fprintf(stderr,"return_value : %d\n",return_value);
+    handle_stuff();
     return return_value;
 }
 
@@ -293,4 +295,18 @@ int skip_to_next_line(int file_iterator,char* file_contents)
 
     //file_iterator += 1;
     return file_iterator - 1;
+}
+
+//debug log stuff that will be done in the end:
+void handle_stuff()
+{
+    fseek(GLOBAL_log_file,0,SEEK_SET);
+
+    int read_test_no = (int)fgetc(GLOBAL_log_file);
+    read_test_no += 1;
+
+    char write_test_no = (char)read_test_no;
+    fprintf(GLOBAL_log_file,"%c\n",write_test_no);
+
+    fclose(GLOBAL_log_file);
 }
