@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#
 
 //random comment so that I can push. - Scanning: Negation & inequality operators
 
