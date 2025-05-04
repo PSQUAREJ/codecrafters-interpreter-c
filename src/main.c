@@ -37,6 +37,7 @@ int main(int argc, char *argv[]) {
     else
     {
         GLOBAL_log_file = log_file;
+        handle_stuff();
     }
 
 
@@ -65,7 +66,6 @@ int main(int argc, char *argv[]) {
     }
 
     //fprintf(stderr,"return_value : %d\n",return_value);
-    handle_stuff();
     return return_value;
 }
 
@@ -302,11 +302,36 @@ void handle_stuff()
 {
     fseek(GLOBAL_log_file,0,SEEK_SET);
 
-    int read_test_no = (int)fgetc(GLOBAL_log_file);
-    read_test_no += 1;
+    char read_test_no = (char)fgetc(GLOBAL_log_file);
 
-    char write_test_no = (char)read_test_no;
-    fprintf(GLOBAL_log_file,"%c\n",write_test_no);
+    int int_test_no = (int)read_test_no;
+    int_test_no += 1;
+
+    char char_test_no = (char)int_test_no;
+    fprintf(GLOBAL_log_file,"%c\n",char_test_no);
+    switch(char_test_no)
+    {
+        case '1':
+        {
+            fprintf(GLOBAL_log_file,"one\n");
+            break;
+        }
+        case '2':
+        {
+            fprintf(GLOBAL_log_file,"two\n");
+            break;
+        }
+        case '3':
+        {
+            fprintf(GLOBAL_log_file,"three\n");
+            break;
+        }
+        default:
+        {
+            fprintf(GLOBAL_log_file,"what the hell");
+            break;
+        }
+    }
 
     fclose(GLOBAL_log_file);
 }
