@@ -7,13 +7,14 @@
 //global variables
 long GLOBAL_file_size;
 int GLOBAL_error_flag;
+FILE *GLOBAL_log_file;
 
 //declaration of functions (fuck you for declaring functions at the start and defining at the end. I hate that)
 char *read_file_contents(const char *filename);
 int Scanner(char *file_contents);
 void testing(char *file_contents);
 int skip_to_next_line(int file_iterator,char* file_contents);
-//void log_error(const char *format, ...) //logging shit
+
 
 int main(int argc, char *argv[]) {
     // Disable output buffering
@@ -24,6 +25,19 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Usage: ./your_program tokenize <filename>\n");
         return 1;
     }
+
+    //open debug file:
+    FILE *log_file = fopen("log.txt","w");
+    if(log_file == NULL)
+    {
+        printf("cant open, wont open\n");
+        return 1;
+    }
+    else
+    {
+        GLOBAL_log_file = log_file;
+    }
+
 
     const char *command = argv[1];
     int return_value = 0;
@@ -270,11 +284,13 @@ int skip_to_next_line(int file_iterator,char* file_contents)
     //file_contents will contain the actual data from the file that we are scaning.
     //thus we get the current element by file_contents[file_iterator]
 
+    fprintf(GLOBAL_log_file,"skip_to_next_line invoked\n")
+
     while(file_contents[file_iterator] != '\n' && file_contents[file_iterator] != '\0');
     {
         file_iterator += 1;
     }
 
     //file_iterator += 1;
-    return file_iterator;
+    return file_iterator - 1;
 }
