@@ -288,6 +288,7 @@ int skip_to_next_line(int file_iterator,char* file_contents)
     //thus we get the current element by file_contents[file_iterator]
 
     fprintf(stderr,"[log] skip_to_next_line invoked\n");
+    fprintf(stderr,"[log] skip_to_next_line invoked2\n");
 
     while(file_contents[file_iterator] != '\n' && file_contents[file_iterator] != '\0');
     {
