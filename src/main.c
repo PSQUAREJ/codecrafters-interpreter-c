@@ -294,6 +294,7 @@ int skip_to_next_line(int file_iterator,char* file_contents)
         file_iterator += 1;
     }
 
+    fprintf(stderr,"[log] skip_to_next_line exiting\n");
     //file_iterator += 1;
     return file_iterator - 1;
 }
