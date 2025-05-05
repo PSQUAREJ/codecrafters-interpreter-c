@@ -14,7 +14,7 @@ char *read_file_contents(const char *filename);
 int Scanner(char *file_contents);
 void testing(char *file_contents);
 int skip_to_next_line(int file_iterator,char* file_contents);
-void handle_stuff();
+//void handle_stuff();
 
 
 int main(int argc, char *argv[]) {
@@ -28,17 +28,17 @@ int main(int argc, char *argv[]) {
     }
 
     //open debug file:
-    FILE *log_file = fopen("log.txt","w");
-    if(log_file == NULL)
-    {
-        printf("cant open, wont open\n");
-        return 1;
-    }
-    else
-    {
-        GLOBAL_log_file = log_file;
-        handle_stuff();
-    }
+    // FILE *log_file = fopen("log.txt","w");
+    // if(log_file == NULL)
+    // {
+    //     printf("cant open, wont open\n");
+    //     return 1;
+    // }
+    // else
+    // {
+    //     GLOBAL_log_file = log_file;
+    //     //handle_stuff();
+    // }
 
 
     const char *command = argv[1];
@@ -286,7 +286,7 @@ int skip_to_next_line(int file_iterator,char* file_contents)
     //file_contents will contain the actual data from the file that we are scaning.
     //thus we get the current element by file_contents[file_iterator]
 
-    fprintf(GLOBAL_log_file,"skip_to_next_line invoked\n");
+    fprintf(stderr,"[log] skip_to_next_line invoked\n");
 
     while(file_contents[file_iterator] != '\n' && file_contents[file_iterator] != '\0');
     {
@@ -298,40 +298,40 @@ int skip_to_next_line(int file_iterator,char* file_contents)
 }
 
 //debug log stuff that will be done in the end:
-void handle_stuff()
-{
-    fseek(GLOBAL_log_file,0,SEEK_SET);
+// void handle_stuff()
+// {
+//     fseek(GLOBAL_log_file,0,SEEK_SET);
 
-    char read_test_no = (char)fgetc(GLOBAL_log_file);
+//     char read_test_no = (char)fgetc(GLOBAL_log_file);
 
-    int int_test_no = (int)read_test_no;
-    int_test_no += 1;
+//     int int_test_no = (int)read_test_no;
+//     int_test_no += 1;
 
-    char char_test_no = (char)int_test_no;
-    fprintf(GLOBAL_log_file,"%c\n",char_test_no);
-    switch(char_test_no)
-    {
-        case '1':
-        {
-            fprintf(GLOBAL_log_file,"one\n");
-            break;
-        }
-        case '2':
-        {
-            fprintf(GLOBAL_log_file,"two\n");
-            break;
-        }
-        case '3':
-        {
-            fprintf(GLOBAL_log_file,"three\n");
-            break;
-        }
-        default:
-        {
-            fprintf(GLOBAL_log_file,"what the hell");
-            break;
-        }
-    }
+//     char char_test_no = (char)int_test_no;
+//     fprintf(GLOBAL_log_file,"%c\n",char_test_no);
+//     switch(char_test_no)
+//     {
+//         case '1':
+//         {
+//             fprintf(GLOBAL_log_file,"one\n");
+//             break;
+//         }
+//         case '2':
+//         {
+//             fprintf(GLOBAL_log_file,"two\n");
+//             break;
+//         }
+//         case '3':
+//         {
+//             fprintf(GLOBAL_log_file,"three\n");
+//             break;
+//         }
+//         default:
+//         {
+//             fprintf(GLOBAL_log_file,"what the hell");
+//             break;
+//         }
+//     }
 
-    fclose(GLOBAL_log_file);
-}
+//     fclose(GLOBAL_log_file);
+// }

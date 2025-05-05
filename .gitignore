@@ -58,3 +58,4 @@ vcpkg_installed
 testing/
 cache/
 local_builds/
+balls/
